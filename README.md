@@ -51,8 +51,12 @@ Runs on http://localhost:3000
 Visit http://localhost:3000/register, create an account, then
 http://localhost:3000/login with the same credentials.
 
-## Deploy later
-- **server/** → Render (Web Service, root directory = `server`)
-- **client/** → Vercel (root directory = `client`)
+## Deploy
+- Deploy **server/** as a Render Web Service with root directory `server`.
+- Set `DATABASE_URL`, `JWT_SECRET`, and `CLIENT_URL` in Render.
+- Deploy **client/** to Vercel with root directory `client`.
+- Set `NEXT_PUBLIC_API_URL` in Vercel to the full public Render URL, for example
+  `https://your-auth-api.onrender.com` (without a trailing slash).
+- Redeploy the client after adding or changing `NEXT_PUBLIC_API_URL`.
 
 Set the same env vars in each platform's dashboard — never commit `.env` files.
